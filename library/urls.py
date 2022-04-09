@@ -23,6 +23,6 @@ urlpatterns = [
     path('', get_hello),
     path('uuids-a', get_uuids_a),
     path('uuids-b', get_uuids_b),
-    path('uuids-b', get_fun1),
-    path('uuids-b', get_fun2),
+    path('get-fun1', get_fun1),
+    path('get-fun2', get_fun2),
 ]
