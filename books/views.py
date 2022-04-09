@@ -15,3 +15,9 @@ def get_uuids_a(request: WSGIRequest) -> HttpResponse:
 def get_uuids_b(request: WSGIRequest) -> JsonResponse:
     uuids = [f"{uuid4()}" for _ in range(10)]
     return JsonResponse({"uuids":uuids})
+
+def get_fun1(request: WSGIRequest) -> HttpResponse:
+    return HttpResponse(4+4)
+
+def get_fun2(request: WSGIRequest) -> HttpResponse:
+    return HttpResponse("masło"+"Spasło")
