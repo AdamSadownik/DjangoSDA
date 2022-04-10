@@ -13,9 +13,9 @@ def get_hello(request: WSGIRequest) -> HttpResponse:
 
 
 def get_uuids_a(request: WSGIRequest) -> HttpResponse:
-    # uuids = [str(uuid4()) for _ in range(10)] - konwersja na str: str(zmienna) | f"{zmienna}"
     uuids = [f"{uuid4()}" for _ in range(10)]
-    return HttpResponse(f"uuids={uuids}")
+    return render(request, template_name="uuids_a.html", context={"elements": uuids})
+    # return HttpResponse(f"uuids={uuids}")
 
 
 def get_uuids_b(request: WSGIRequest) -> JsonResponse:
