@@ -20,4 +20,10 @@ def get_fun1(request: WSGIRequest) -> HttpResponse:
     return HttpResponse(4+4)
 
 def get_fun2(request: WSGIRequest) -> HttpResponse:
-    return HttpResponse("masło"+"Spasło")
+    return HttpResponse("raz"+"Dwa")
+
+def get_argument_from_path(request: WSGIRequest, x: int, y: str, z: str) -> HttpResponse:
+
+    return HttpResponse(f'x={x}, y={y}, z={z}')
+    # return HttpResponse('test stringa')
+    # path('path-args/<int:first_arg>/<str:second_arg>/<slug:third_arg>/', get_argument_from_path, name="path_args"),
