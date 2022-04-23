@@ -1,3 +1,35 @@
 from django.db import models
 
 # Create your models here.
+
+from django.contrib.auth.models import User
+from django.db.models import QuerySet
+
+class BookAuthor(models.Model):
+    name = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+# ba=BookAuthor(name = 'Adam')
+
+class Category(models.Model):
+    name = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+class Book(models.Model):
+    title = models.TextField()
+    authors = models.ManyToManyField(BookAuthor)
+    publisher = models.TextField(null=True)
+    published_date = models.DateField(null=True)
+    categories = models.ManyToManyField(Category)
+    average_rating = models.FloatField(null=True)
+
+    def __str__(self):
+        return f"'{self.title}' - {self.authors} - {self.published_date}"
+
+# Books.objects.aggregate(average=Avg(""))
+
+# from django.db.models import Q, Avg
