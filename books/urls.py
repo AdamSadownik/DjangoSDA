@@ -1,7 +1,8 @@
 from django.urls import path
 
 from books.views import get_uuids_a, get_uuids_b, get_fun1, get_fun2, get_argument_from_path, \
-    get_arguents_from_query, check_http_query_type, get_headers, raise_error_for_fun, AuthorListBaseView
+    get_arguents_from_query, check_http_query_type, get_headers, raise_error_for_fun, AuthorListBaseView, \
+    CategoryListTemplateView
 
 urlpatterns = [
     path('uuids-a', get_uuids_a),
@@ -14,4 +15,5 @@ urlpatterns = [
     path('get-headers', get_headers, name="get_headers"),
     path('raise-error', raise_error_for_fun, name='raise-error'),
     path('author_list', AuthorListBaseView.as_view(), name='author_list'),
+    path('category_list', CategoryListTemplateView.as_view(), name='category_list'),
 ]
