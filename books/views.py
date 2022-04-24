@@ -9,13 +9,17 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView, ListView, DetailView
 
 from books.models import BookAuthor, Category, Book
+import logging
 
+logger = logging.getLogger(__name__)
 
 class AuthorListBaseView(View):
     template_name = "author_list.html"
     queryset = BookAuthor.objects.all()  # type: ignore
 
     def get(self, request: WSGIRequest, *args, **kwargs):
+        logger.debug(f"{request} --- dupa!!!")
+
         context = {"authors": self.queryset}
         return render(request, template_name=self.template_name, context=context)
 
