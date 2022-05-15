@@ -20,8 +20,9 @@ from django.urls import path, include
 from books.views import get_hello
 
 urlpatterns = [
-    path('', get_hello),
+    path('', get_hello, name = 'home'),
     path('books/', include('books.urls')),
+    path('users/', include('users.urls')),
     # path('uuids-a', get_uuids_a),
     # path('uuids-b', get_uuids_b),
     # path('get-fun1', get_fun1),
